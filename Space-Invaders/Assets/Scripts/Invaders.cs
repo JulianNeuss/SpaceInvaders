@@ -79,7 +79,7 @@ public class Invaders : MonoBehaviour
         this.amountKilled++;
         if(this.amountKilled >= this.totalInvaders){
             // Con esto reseteamos todo el juego
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name)
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
