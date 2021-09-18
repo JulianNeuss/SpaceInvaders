@@ -31,6 +31,7 @@ public class Invader : MonoBehaviour
         if(other.gameObject.layer == LayerMask.NameToLayer("Laser")){
             this.killed.Invoke();
             this.gameObject.SetActive(false);
+            SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.AlienKilled);
         }
     }
 }

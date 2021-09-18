@@ -11,8 +11,22 @@ public class SFXManager : MonoBehaviour
 
     public AudioClip AlienKilled;
 
+    public AudioClip MysteryShipKilled;
+    // public AudioClip PlayerDamaged;
+    // public AudioClip Win;
+    // public AudioClip Lose;
+
+    public AudioClip Click;
+
+
     public static SFXManager SFXManagerInstance;
 
+
+    public bool isActive = true;
+
+    public void onOffSound(){
+        this.isActive = !this.isActive;
+    }
 
     public void Awake()
     {

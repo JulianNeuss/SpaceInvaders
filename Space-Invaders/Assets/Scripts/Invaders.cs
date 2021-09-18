@@ -77,7 +77,6 @@ public class Invaders : MonoBehaviour
 
     private void InvaderKilled(){
         this.amountKilled++;
-        SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.AlienKilled);
         if(this.amountKilled >= this.totalInvaders){
             // Con esto reseteamos todo el juego
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
