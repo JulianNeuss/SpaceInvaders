@@ -2,32 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SfxManager : MonoBehaviour
-{ 
+public class SFXManager : MonoBehaviour
+{
+
     public AudioSource Audio;
 
-    public AudioClip Shot;
+    public AudioClip Shoot;
 
-    public AudioClip AlienExplosion;
+    public AudioClip AlienKilled;
 
-    public AudioClip PlayerHitted;
+    public static SFXManager SFXManagerInstance;
 
-    public AudioClip PlayerLoose;
 
-    public AudioClip PlayerWins;
-
-    public static SfxManager sfxInstance;
-        
-    // Start is called before the first frame update
-    private void Awake()
+    public void Awake()
     {
-        if(sfxInstance != null && sfxInstance != this)
+        if(SFXManagerInstance != null && SFXManagerInstance != this)
         {
             Destroy(this.gameObject);
             return;
         }
-        sfxInstance = this;
+        SFXManagerInstance = this;
         DontDestroyOnLoad(this);
     }
-
 }

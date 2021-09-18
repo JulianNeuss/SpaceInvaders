@@ -23,6 +23,7 @@ public class Player : MonoBehaviour
             Projectile projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
             projectile.destroyed += LaserDestroyed;
             _laserActive = true;
+            SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.Shoot);
         }
     }
 
