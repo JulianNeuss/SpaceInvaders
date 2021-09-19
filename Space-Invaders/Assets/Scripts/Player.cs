@@ -1,11 +1,12 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
     public Projectile laserPrefab;
     public float speed = 5.0f;
     private bool _laserActive;
-
+    public bool isAlive = true;
     private UImanager _uiManager;
 
     public int remainingShields = 3;
@@ -48,10 +49,14 @@ public class Player : MonoBehaviour
             {
                 remainingShields = remainingShields - 1;
                 _uiManager.updateShields(remainingShields);
+                SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.PlayerGotShot);
             }
             else
             {
+                //LOSE THE GAME
                 this.gameObject.SetActive(false);
+                SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.Lose);
+                isAlive = false;
             }
         }
     }

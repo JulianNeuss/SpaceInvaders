@@ -12,9 +12,9 @@ public class SFXManager : MonoBehaviour
     public AudioClip AlienKilled;
 
     public AudioClip MysteryShipKilled;
-    // public AudioClip PlayerDamaged;
+    public AudioClip PlayerGotShot;
     // public AudioClip Win;
-    // public AudioClip Lose;
+    public AudioClip Lose;
 
     public AudioClip Click;
 

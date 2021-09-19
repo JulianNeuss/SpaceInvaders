@@ -666,7 +666,10 @@ MonoBehaviour:
   Shoot: {fileID: 8300000, guid: df124e09815e045f387e02c30dc47805, type: 3}
   AlienKilled: {fileID: 8300000, guid: 351ca92cbbf9b47dcbb11adba85e5e28, type: 3}
   MysteryShipKilled: {fileID: 8300000, guid: e37027210ce0ae447a736000990cfa40, type: 3}
+  PlayerGotShot: {fileID: 8300000, guid: a22c424c57351254888549010d96bc82, type: 3}
+  Lose: {fileID: 8300000, guid: a518febb66d88ea4ba1ff6edbc4a3d75, type: 3}
   Click: {fileID: 8300000, guid: 95cfc79e105d7c844844d152f314c001, type: 3}
+  isActive: 1
 --- !u!4 &391215444
 Transform:
   m_ObjectHideFlags: 0
