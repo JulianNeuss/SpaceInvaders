@@ -6,6 +6,15 @@ public class Player : MonoBehaviour
     public float speed = 5.0f;
     private bool _laserActive;
 
+    private UImanager _uiManager;
+
+    public int remainingShields = 3;
+
+    private void Start()
+    {
+        _uiManager = GameObject.Find("UICanvas").GetComponent<UImanager>();
+    }
+
     private void Update(){
         if(Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow)){
             this.transform.position += Vector3.left * this.speed * Time.deltaTime;
@@ -19,7 +28,7 @@ public class Player : MonoBehaviour
     }
 
     private void Shoot(){
-        if(!_laserActive){
+        if (!_laserActive){
             Projectile projectile = Instantiate(this.laserPrefab, this.transform.position, Quaternion.identity);
             projectile.destroyed += LaserDestroyed;
             _laserActive = true;
@@ -29,5 +38,21 @@ public class Player : MonoBehaviour
 
     private void LaserDestroyed(){
         _laserActive = false;
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Missile"))
+        {
+            if (remainingShields > 0)
+            {
+                remainingShields = remainingShields - 1;
+                _uiManager.updateShields(remainingShields);
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
     }
 }
