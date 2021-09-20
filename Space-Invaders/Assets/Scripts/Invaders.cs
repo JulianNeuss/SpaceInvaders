@@ -14,6 +14,7 @@ public class Invaders : MonoBehaviour
     public int amountAlive => this.totalInvaders - this.amountKilled;
     public int totalInvaders => this.rows * this.columns;
     public float percentKilled => (float)this.amountKilled / (float)this.totalInvaders;
+    public bool playerWon = false;
 
     private void Awake(){
         for (int row = 0; row < this.rows; row++){
@@ -78,8 +79,9 @@ public class Invaders : MonoBehaviour
     private void InvaderKilled(){
         this.amountKilled++;
         if(this.amountKilled >= this.totalInvaders){
+            this.playerWon = true;
             // Con esto reseteamos todo el juego
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            // SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 

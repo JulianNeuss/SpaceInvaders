@@ -43,6 +43,15 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        // Invader collides with Player
+        // if (other.gameObject.layer == LayerMask.NameToLayer("Invader"))
+        // {
+        //     //LOSE THE GAME
+        //     this.gameObject.SetActive(false);
+        //     SFXManager.SFXManagerInstance.Audio.PlayOneShot(SFXManager.SFXManagerInstance.Lose);
+        //     isAlive = false;
+        
+        // }
         if (other.gameObject.layer == LayerMask.NameToLayer("Missile"))
         {
             if (remainingShields > 0)
